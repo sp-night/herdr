@@ -1,0 +1,18 @@
+name: theme
+
+# The mapping in herdr.toml.tmpl pins the exact spn version it was generated with, so this
+# file never needs editing when the engine moves. The engine's release fan-out
+# bumps that pin and regenerates the theme files in one pull request.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    uses: sp-night/sp-night/.github/workflows/spn-check.yml@v1
+    with:
+      port: herdr
