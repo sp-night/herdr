@@ -1,0 +1,84 @@
+# SP Night — Noite Paulista
+# A cidade às 3h. O escuro azul-violeta do tokyodark, e o poste de sódio queimando quente por cima.
+#
+# Generated from the SP Night palette — do not edit by hand.
+# https://github.com/sp-night/herdr
+#
+# merge into: ~/.config/herdr/config.toml
+#
+# herdr has no theme file and no include, so this is not a file you install —
+# it is a block you paste into your own config, which holds the rest of your
+# settings. Copying this over `config.toml` would take them with it.
+#
+# Apply with `herdr server reload-config`. No restart, no reattach.
+#
+# Every one of the seventeen tokens herdr exposes is set below, which is every
+# field of its internal palette — so whatever `theme.name` you have is
+# irrelevant and no colour leaks through from the base theme.
+
+[theme.custom]
+
+# --- surfaces ---------------------------------------------------------------
+#
+# The sidebar is permanent furniture, so it sits on exposed concrete. Modals
+# drop the other way, into the *vão*, and separate by depth rather than by
+# drawing a heavier border around themselves.
+sidebar_bg  = "#1d1f2d"
+panel_bg    = "#0f101a"
+
+# Two steps of "this row is picked out". The selected one takes *vidro*, glass
+# reflecting the street; merely active sits a step below it.
+surface0    = "#272937"
+surface1    = "#1d1f2d"
+
+# Borders between panes. Despite the name this is a line colour, not a fill —
+# it is what `border_style` reaches for.
+surface_dim = "#373943"
+
+# --- text -------------------------------------------------------------------
+#
+# Three steps down from the main label. `overlay0` is the workhorse — it is also
+# what an agent gets when herdr cannot tell what state it is in, which is the
+# right colour for "no claim being made".
+text        = "#d3d7eb"
+subtext0    = "#868999"
+overlay1    = "#868999"
+overlay0    = "#707380"
+
+# --- accent -----------------------------------------------------------------
+#
+# The focused border, in *sódio* — the sodium street lamp the whole palette is
+# named after, doing the job it does everywhere else: marking where you are.
+accent      = "#f2984a"
+
+# --- agent state ------------------------------------------------------------
+#
+# The reason herdr exists: a glance at the sidebar has to tell you who needs you.
+# So these four are not decoration, they are the interface, and they take the
+# diagnostic roles rather than arbitrary hues.
+#
+#   red     blocked, waiting on you        the only one that is your move
+#   yellow  working
+#   teal    finished, and you have not looked yet
+#   green   finished, and you have
+#
+# That last pair is a distinction herdr draws and most themes flatten. Keeping
+# it costs one role and turns "done" into "done, still needs your attention".
+red         = "#ea5d5d"
+yellow      = "#f5c66b"
+teal        = "#5dbec4"
+green       = "#89d093"
+
+# The toast that says a run finished — information, after the fact, about
+# something that already went well.
+blue        = "#6e92de"
+
+# Branch names and the special labels beside them.
+mauve       = "#b094e2"
+
+# Set for completeness rather than for effect. herdr defines `peach` in every
+# built-in theme and accepts an override for it, but nothing in the interface
+# paints with it today — checked across the source, not inferred from the docs.
+# It is set so that the day something does, it is already this palette's colour
+# instead of Catppuccin's.
+peach       = "#f2984a"

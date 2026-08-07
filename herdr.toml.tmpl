@@ -1,0 +1,90 @@
+---
+spn:
+  version: "1.3.0"
+  matrix: [flavor]
+  filename: "themes/sp_night_{{ .Flavor }}.toml"
+---
+# SP Night — {{ .FlavorLabel }}
+# {{ .FlavorDesc }}
+#
+# Generated from the SP Night palette — do not edit by hand.
+# {{ .Repo }}
+#
+# merge into: {{ .Install }}
+#
+# herdr has no theme file and no include, so this is not a file you install —
+# it is a block you paste into your own config, which holds the rest of your
+# settings. Copying this over `config.toml` would take them with it.
+#
+# Apply with `herdr server reload-config`. No restart, no reattach.
+#
+# Every one of the seventeen tokens herdr exposes is set below, which is every
+# field of its internal palette — so whatever `theme.name` you have is
+# irrelevant and no colour leaks through from the base theme.
+
+[theme.custom]
+
+# --- surfaces ---------------------------------------------------------------
+#
+# The sidebar is permanent furniture, so it sits on exposed concrete. Modals
+# drop the other way, into the *vão*, and separate by depth rather than by
+# drawing a heavier border around themselves.
+sidebar_bg  = "{{ .R.ui.panel }}"
+panel_bg    = "{{ .R.ui.float }}"
+
+# Two steps of "this row is picked out". The selected one takes *vidro*, glass
+# reflecting the street; merely active sits a step below it.
+surface0    = "{{ .R.ui.selection }}"
+surface1    = "{{ .R.ui.line }}"
+
+# Borders between panes. Despite the name this is a line colour, not a fill —
+# it is what `border_style` reaches for.
+surface_dim = "{{ .R.ui.border }}"
+
+# --- text -------------------------------------------------------------------
+#
+# Three steps down from the main label. `overlay0` is the workhorse — it is also
+# what an agent gets when herdr cannot tell what state it is in, which is the
+# right colour for "no claim being made".
+text        = "{{ .R.ui.fg }}"
+subtext0    = "{{ .R.ui.fg_dim }}"
+overlay1    = "{{ .R.ui.fg_dim }}"
+overlay0    = "{{ .R.ui.fg_muted }}"
+
+# --- accent -----------------------------------------------------------------
+#
+# The focused border, in *sódio* — the sodium street lamp the whole palette is
+# named after, doing the job it does everywhere else: marking where you are.
+accent      = "{{ .R.ui.accent }}"
+
+# --- agent state ------------------------------------------------------------
+#
+# The reason herdr exists: a glance at the sidebar has to tell you who needs you.
+# So these four are not decoration, they are the interface, and they take the
+# diagnostic roles rather than arbitrary hues.
+#
+#   red     blocked, waiting on you        the only one that is your move
+#   yellow  working
+#   teal    finished, and you have not looked yet
+#   green   finished, and you have
+#
+# That last pair is a distinction herdr draws and most themes flatten. Keeping
+# it costs one role and turns "done" into "done, still needs your attention".
+red         = "{{ .R.diagnostic.error }}"
+yellow      = "{{ .R.diagnostic.warn }}"
+teal        = "{{ .R.diagnostic.hint }}"
+green       = "{{ .R.diagnostic.ok }}"
+
+# The toast that says a run finished — information, after the fact, about
+# something that already went well.
+blue        = "{{ .R.diagnostic.info }}"
+
+# Branch names and the special labels beside them.
+mauve       = "{{ .R.syntax.type }}"
+
+# Set for completeness rather than for effect. herdr defines `peach` in every
+# built-in theme and accepts an override for it, but nothing in the interface
+# paints with it today — checked across the source, not inferred from the docs.
+# It is set so that the day something does, it is already this palette's colour
+# instead of Catppuccin's.
+peach       = "{{ .R.ui.accent }}"
