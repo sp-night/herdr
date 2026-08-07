@@ -1,0 +1,13 @@
+# Everything here except the mapping is generated.
+#
+# Marking it as such collapses it in a diff, so a regeneration pull request leads
+# with the change to herdr.toml.tmpl, the decision someone made, instead of burying it under a
+# few thousand lines of hex. The files are still verified: `spn gen --check`
+# fails if any of them drifts from the mapping.
+themes/** linguist-generated=true
+assets/*.svg linguist-generated=true
+README.md linguist-generated=true
+
+# The mapping is the one hand-written file, but a Go template is not this
+# repository's language. A colourscheme port does not have one.
+*.tmpl linguist-detectable=false
